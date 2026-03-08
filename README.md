@@ -27,7 +27,7 @@ It wrote the code, ran away, and now the game is unplayable.
 
 - [X] Describe the game's purpose.
 
-The Game Glitch Investigator is a number guessing game built with Streamlit where players try to guess a randomly generated secret number. Players select a difficulty level (Easy, Normal, or Hard) which sets the range of numbers and the number of attempts allowed. After each guess, the game provides hints telling the player whether to guess higher or lower. Players earn a score based on how many wrong guesses they made before winning, with a maximum of 100 points for a perfect game.
+   The Game Glitch Investigator is a number guessing game built with Streamlit where players try to guess a randomly generated secret number. Players select a difficulty level (Easy, Normal, or Hard) which sets the range of numbers and the number of attempts allowed. After each guess, the game provides hints telling the player whether to guess higher or lower. Players earn a score based on how many wrong guesses they made before winning, with a maximum of 100 points for a perfect game.
 
 - [X] Detail which bugs you found.
 1. Incorrect Attempt Limits: The Easy mode had fewer attempts allowed than Normal mode, which didn't make sense for difficulty levels.
