@@ -33,17 +33,9 @@ def check_guess(guess, secret):
     if guess == secret:
         return "Win", "🎉 Correct!"
 
-    try:
-        if guess > secret:
-            return "Too High", "📈 Go HIGHER!"
-        else:
-            return "Too Low", "📉 Go LOWER!"
-    except TypeError:
-        g = str(guess)
-        if g == secret:
-            return "Win", "🎉 Correct!"
-        if g > secret:
-            return "Too High", "📈 Go HIGHER!"
+    if guess > secret:
+        return "Too High", "📈 Go HIGHER!"
+    else:
         return "Too Low", "📉 Go LOWER!"
 
 
@@ -158,10 +150,7 @@ if submit:
     else:
         st.session_state.history.append(guess_int)
 
-        if st.session_state.attempts % 2 == 0:
-            secret = str(st.session_state.secret)
-        else:
-            secret = st.session_state.secret
+        secret = st.session_state.secret
 
         outcome, message = check_guess(guess_int, secret)
 
@@ -193,7 +182,3 @@ if submit:
 st.divider()
 st.caption("Built by an AI that claims this code is production-ready.")
 
-
-#"New Game Button does not work"
-#"Hint does not come back after hitting twice"
-#"Does not accuratly display the write answer meaning the game mechinces does not work"
