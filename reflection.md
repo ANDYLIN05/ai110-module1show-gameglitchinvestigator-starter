@@ -38,11 +38,13 @@ A: Yes AI help come up with many different testes. I had to make sure if those t
 ## 4. What did you learn about Streamlit and state?
 
 - In your own words, explain why the secret number kept changing in the original app.
-A: The secret number did not change with the original app instead the problem was a state issue when the user started a new game state. The "New Game" button would never changed the state of the game and therefore the secret number would not have change. 
+A: The original app was generating a new secret number every single time the script ran top to bottom. In Streamlit, every time you click a button or type something, the entire script reruns. Without saving the secret number somewhere permanent, it was being regenerated as a new random number on each rerun, so the "secret" was never actually secret.
+
 - How would you explain Streamlit "reruns" and session state to a friend who has never used Streamlit?
-A: Streamlit reruns the entire script every time you interact with it. It's like when you click a button, type text, or change a dropdown. Without session state, all your variables would reset on every rerun, so your game would forget the secret number, your score, and how many attempts you've made. 
+A: Imagine a form that runs from the top to the bottom every time someone fills it out. A rerun is when Streamlit automatically runs your entire code again whenever a user clicks a button or types something. Session state is like a sticky note pad that remembers information between reruns, so you can keep track of things like the player's score or the secret number without them disappearing.
+
 - What change did you make that finally gave the game a stable secret number?
-A: I didn't make any changes to the secret number stability. The original code already had the if 'secret' not in st.session_state: check that prevented it from regenerating on every rerun. The bugs I actually fixed were the New Game button (which wasn't resetting the game state properly), the attempts count for different difficulties, and the hint messages that were backwards.
+A: I used Streamlit's session state to store the secret number with `if "secret" not in st.session_state: st.session_state.secret = random.randint(low, high)`. This checks if the secret already exists in session state, and only generates a new random number if it doesn't. Now the secret stays the same across all the reruns while playing one game. 
 ---
 
 ## 5. Looking ahead: your developer habits
