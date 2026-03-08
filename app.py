@@ -132,8 +132,11 @@ with col3:
     show_hint = st.checkbox("Show hint", value=True)
 
 if new_game:
-    st.session_state.attempts = 0
-    st.session_state.secret = random.randint(1, 100)
+    st.session_state.attempts = 1
+    st.session_state.status = "playing"
+    st.session_state.score = 0 
+    st.session_state.history = []
+    st.session_state.secret = random.randint(low, high)
     st.success("New game started.")
     st.rerun()
 
@@ -189,3 +192,8 @@ if submit:
 
 st.divider()
 st.caption("Built by an AI that claims this code is production-ready.")
+
+
+#"New Game Button does not work"
+#"Hint does not come back after hitting twice"
+#"Does not accuratly display the write answer meaning the game mechinces does not work"
